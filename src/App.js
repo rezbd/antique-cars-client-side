@@ -8,11 +8,15 @@ import {
 import Explore from './Pages/Explore/Explore';
 import Error from './Pages/Error/Error';
 import Booking from './Pages/Booking/Booking/Booking';
+import Login from './Pages/Login/Login/Login';
+import Header from './Pages/Shared/Header/Header';
+import Register from './Pages/Login/Register/Register';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header></Header>
         <Switch>
           <Route exact path="/">
             <Home></Home>
@@ -22,6 +26,12 @@ function App() {
           </Route>
           <Route path="/explore">
             <Explore></Explore>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="/booking/:serviceId">
             <Booking></Booking>
