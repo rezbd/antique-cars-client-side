@@ -11,7 +11,7 @@ const Services = () => {
     }, [])
 
     return (
-        <div>
+        <div className="container">
             <h2>This is Services aka Car Items</h2>
             <div className="services-container">
                 {
