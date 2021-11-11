@@ -1,0 +1,19 @@
+.explore-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+@media screen and (max-width: 688px){
+    .explore-container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 689px) and (max-width: 991px){
+    .explore-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
