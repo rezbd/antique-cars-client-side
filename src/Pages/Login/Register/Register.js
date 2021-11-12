@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Button, Spinner } from 'react-bootstrap';
+import { Form, Button, Spinner, Alert } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
 
-    const { user, registerUser, isLoading } = useAuth();
+    const { user, registerUser, isLoading, authError } = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -25,7 +25,7 @@ const Register = () => {
     }
 
     return (
-        <div className="row px-2">
+        <div className="row p-5">
             <div className="col-12 col-md-4 mx-auto">
                 <h2 className="my-5">Register</h2>
                 {!isLoading && < Form onSubmit={handleLoginSubmit}>
@@ -47,10 +47,12 @@ const Register = () => {
                     </Button>
                     <NavLink
                         to="/login">
-                        <Button style={{ textDecoration: 'none' }} variant="link">New User? Please Login</Button>
+                        <Button style={{ textDecoration: 'none' }} variant="link">Existing User? Please Login</Button>
                     </NavLink>
                 </Form>}
                 {isLoading && <Spinner animation="border" />}
+                {user?.email && <Alert variant="success">Congratulations! Successfully registered</Alert>}
+                {authError && <Alert variant="danger">{authError}</Alert>}
             </div>
         </div >
     );

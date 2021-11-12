@@ -12,6 +12,8 @@ import Login from './Pages/Login/Login/Login';
 import Header from './Pages/Shared/Header/Header';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
             <Route exact path="/">
               <Home></Home>
             </Route>
