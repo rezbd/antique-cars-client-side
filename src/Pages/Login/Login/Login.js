@@ -32,7 +32,7 @@ const Login = () => {
                         <Form.Control onChange={handleOnChange} name="password" type="password" placeholder="Password" />
                     </Form.Group>
                     <Button className="w-100 d-block my-4" variant="primary" type="submit">
-                        Submit
+                        Login
                     </Button>
                     <NavLink
                         to="/register">
