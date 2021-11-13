@@ -14,6 +14,8 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import AddService from './Pages/AddService/AddService';
+import AddReview from './Pages/AddReview/AddReview';
 
 function App() {
   return (
@@ -40,8 +42,14 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/booking/:serviceId">
+            <PrivateRoute path="/booking/:serviceId">
               <Booking></Booking>
+            </PrivateRoute>
+            <Route path="/addProduct">
+              <AddService></AddService>
+            </Route>
+            <Route path="/addReview">
+              <AddReview></AddReview>
             </Route>
             <Route path="*">
               <Error></Error>

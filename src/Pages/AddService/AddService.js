@@ -1,0 +1,33 @@
+import React from 'react';
+import { useForm } from "react-hook-form";
+import './AddService.css';
+
+const AddService = () => {
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => console.log(data);
+
+    return (
+        <div className="row">
+            <div className="col-12 col-md-4 mx-auto">
+                <h2>Add an Antique Car</h2>
+                <form className="add-product" onSubmit={handleSubmit(onSubmit)}>
+                    <h6>Antique Car Name</h6>
+                    <input {...register("carName", { required: true, maxLength: 40 })} placeholder="Car Name" />
+                    <br />
+                    <h6>Description</h6>
+                    <textarea {...register("description")} placeholder="Car Description" />
+                    <br />
+                    <h6>Price</h6>
+                    <input type="number" {...register("price")} placeholder="Price" />
+                    <br />
+                    <h6>Car Image Link</h6>
+                    <input {...register("img")} placeholder="Car Image URL" />
+                    <br />
+                    <input className="btn btn-warning" type="submit" />
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default AddService;
