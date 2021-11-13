@@ -1,10 +1,22 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import './AddReview.css';
 
 const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const onSubmit = data => {
+        console.log(data);
+
+        axios.post('http://localhost:5000/reviews', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('successfully added');
+                    reset()
+                }
+            })
+    }
 
     return (
         <div className="row">
@@ -14,11 +26,11 @@ const AddReview = () => {
                     <h6>Your Name</h6>
                     <input {...register("name", { required: true, maxLength: 40 })} placeholder="Your Name" />
                     <br />
-                    <h6>Antique Car Name</h6>
-                    <input {...register("carName", { required: true, maxLength: 40 })} placeholder="Car Name" />
+                    <h6>Your Occupation</h6>
+                    <input {...register("occupation", { required: true, maxLength: 40 })} placeholder="Your Occupation" />
                     <br />
-                    <h6>Your Feedback</h6>
-                    <textarea {...register("feedback")} placeholder="Your Feedback" />
+                    <h6>Your Review</h6>
+                    <textarea {...register("review")} placeholder="Your review" />
                     <br />
                     <h6>Give a Rating (Out of 5)</h6>
                     <input type="number" {...register("rating", { min: 1, max: 5 })} placeholder="Your Rating (1 to 5)" />
