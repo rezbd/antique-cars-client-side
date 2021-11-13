@@ -13,11 +13,16 @@ const Booking = () => {
 
     return (
         <div>
-            <h2>This is purchase page: {serviceId}</h2>
-            <h2>Service Name: {service.carName}</h2>
-            <p>Description: {service.description}</p>
-            <h6>Price: {service.price}</h6>
-            <img src={service.img} alt="" />
+            <div className="row">
+                <div className="col-12 col-md-6 mx-auto">
+                    <div>
+                        <img width="100%" src={service.img} alt="" />
+                        <h3>{service.carName}</h3>
+                        <p>{service.description}</p>
+                        <h5>Price: ${service.price}</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
