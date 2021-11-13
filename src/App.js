@@ -16,6 +16,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import AddService from './Pages/AddService/AddService';
 import AddReview from './Pages/AddReview/AddReview';
+import ManageProducts from './Pages/ManageProducts/ManageProducts';
 
 function App() {
   return (
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route path="/addReview">
               <AddReview></AddReview>
+            </Route>
+            <Route path="/manageProducts">
+              <ManageProducts></ManageProducts>
             </Route>
             <Route path="*">
               <Error></Error>
