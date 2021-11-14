@@ -24,7 +24,7 @@ const Header = () => {
                                     <Nav.Link as={Link} style={{ color: 'white' }} to="/login">Login</Nav.Link>
                             }
                             <Navbar.Text>
-                                Signed in as: <a href="#login">Mark Otto</a>
+                                Signed in as: <a href="#login">{user?.displayName}</a>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Container>
