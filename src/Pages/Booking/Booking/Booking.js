@@ -8,7 +8,7 @@ const Booking = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({})
 
-    const { register, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { user } = useAuth();
 
     useEffect(() => {
@@ -16,6 +16,20 @@ const Booking = () => {
             .then(res => res.json())
             .then(data => setService(data));
     }, [])
+
+    console.log(service);
+
+    // place order form code implement
+    /*  const {
+         register,
+         handleSubmit,
+         watch,
+         formState: { errors },
+     } = useForm(); */
+
+    const onSubmit = (data) => {
+        console.log(data);
+    };
 
     return (
         <section className="container">
@@ -30,14 +44,14 @@ const Booking = () => {
                 </div>
                 <div className="col-12 col-md-5 mx-auto">
                     <h3 className="mb-4">Complete the purchase of {service.carName}</h3>
-                    <form className="purchase-form">
+                    <form onSubmit={handleSubmit(onSubmit)} className="purchase-form">
                         <label>Name</label>
                         <input defaultValue={user.displayName} {...register("name")} />
                         <label>Email</label>
                         <input defaultValue={user.email} {...register("email", { required: true })} />
                         {errors.email && <span className="error">This field is required</span>}
                         <label>Country</label>
-                        <input placeholder="Country" defaultValue="" {...register("city")} />
+                        <input placeholder="Country" defaultValue="" {...register("country")} />
                         <label>City</label>
                         <input placeholder="City" defaultValue="" {...register("city")} />
                         <label>Street Address</label>
@@ -45,9 +59,12 @@ const Booking = () => {
                         <label>Phone Number</label>
                         <input placeholder="phone number" defaultValue="" {...register("phone")} />
 
+                        {errors.exampleRequired && <span>This field is required</span>}
+
                         {/* <Link to="/booked">
                             <input className="btn btn-warning mt-3 w-50 mx-auto" type="submit" />
                         </Link> */}
+                        <input className="btn btn-warning mt-3 mx-auto" type="submit" />
                     </form>
                 </div>
             </div>
