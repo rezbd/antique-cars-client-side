@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Form, Button, Spinner, Alert } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
-
+    const history = useHistory();
     const { user, registerUser, isLoading, authError } = useAuth();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
@@ -20,7 +20,7 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
 
@@ -30,17 +30,21 @@ const Register = () => {
                 <h2 className="my-5">Register</h2>
                 {!isLoading && < Form onSubmit={handleLoginSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control onBlur={handleOnBlur} name="name" placeholder="Enter name" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control onChange={handleOnChange} name="email" type="email" placeholder="Enter email" />
+                        <Form.Control onBlur={handleOnBlur} name="email" type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={handleOnChange} name="password" type="password" placeholder="Password" />
+                        <Form.Control onBlur={handleOnBlur} name="password" type="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword2">
                         <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control onChange={handleOnChange} name="password2" type="password" placeholder="Confirm Password" />
+                        <Form.Control onBlur={handleOnBlur} name="password2" type="password" placeholder="Confirm Password" />
                     </Form.Group>
                     <Button className="w-100 d-block my-4" variant="primary" type="submit">
                         Register

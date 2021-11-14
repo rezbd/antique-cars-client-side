@@ -1,0 +1,8 @@
+.purchase-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.purchase-form input{
+    margin-bottom: 20px;
+}

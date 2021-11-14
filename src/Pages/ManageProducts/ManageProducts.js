@@ -19,7 +19,7 @@ const ManageProducts = () => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount) {
-                    window.confirm('Are you sure you want to delete this?');
+                    // window.confirm('Are you sure you want to delete this?');
                     const remaining = services.filter(service => service._id !== id);
                     setServices(remaining);
                 }
