@@ -18,19 +18,17 @@ const Booking = () => {
     }, [])
 
     return (
-        <section>
+        <section className="container">
             <div className="row">
-                <div className="col-12 col-md-6 mx-auto">
+                <div className="col-12 col-md-5 mx-auto">
                     <div>
-                        <img width="100%" src={service.img} alt="" />
                         <h3>{service.carName}</h3>
+                        <img width="100%" src={service.img} alt="" />
                         <p>{service.description}</p>
                         <h5>Price: ${service.price}</h5>
                     </div>
                 </div>
-            </div>
-            <div className="row">
-                <div className="col-12 col-md-6 mx-auto">
+                <div className="col-12 col-md-5 mx-auto">
                     <h3 className="mb-4">Complete the purchase of {service.carName}</h3>
                     <form className="purchase-form">
                         <label>Name</label>
