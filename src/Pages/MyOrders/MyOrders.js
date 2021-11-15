@@ -7,30 +7,45 @@ const MyOrders = () => {
 
     const [services, setServices] = useState([]);
 
+    const [control, setControl] = useState(false);
+
     useEffect(() => {
         fetch(`http://localhost:5000/myOrders/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setServices(data));
-    }, [user]);
+    }, [user, control]);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.deletedCount) {
+                    alert('this order is canceled')
+                    setControl(!control);
+                }
+            });
+    };
 
     return (
-        <div>
+        <section className="container">
             <h2>My Orders</h2>
             <div className="services">
-                <div className="row container">
+                <div className="row">
                     {services?.map((pd) => (
                         <div key={pd._id} className="col-12 col-md-4">
                             <div className="border border-3 p-3">
                                 <h6>My Name: {pd?.name}</h6>
                                 <h4>Selected Car: {pd?.carName}</h4>
                                 <p>Shipping Address: {pd?.address}</p>
-                                <button className="btn btn-danger">Cancel Order</button>
+                                <button onClick={() => handleDelete(pd?._id)} className="btn btn-danger">Cancel Order</button>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
