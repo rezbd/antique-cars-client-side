@@ -17,6 +17,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import AddService from './Pages/AddService/AddService';
 import AddReview from './Pages/AddReview/AddReview';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
+import MyOrders from './Pages/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
             </Route>
             <Route path="/manageProducts">
               <ManageProducts></ManageProducts>
+            </Route>
+            <Route path="/myOrders">
+              <MyOrders></MyOrders>
             </Route>
             <Route path="*">
               <Error></Error>

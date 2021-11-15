@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import { clearTheCart, getStoredCart } from '../../../utilities/fakedb';
 import './Booking.css';
 
 const Booking = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({})
 
-    const { register, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useAuth();
 
     useEffect(() => {
@@ -17,6 +18,27 @@ const Booking = () => {
             .then(data => setService(data));
     }, [])
 
+    // codes to submit form data
+    const onSubmit = data => {
+        const savedCart = getStoredCart();
+        data.order = savedCart;
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    alert('purchase order processed successfully')
+                    clearTheCart();
+                    reset();
+                }
+            })
+    };
 
     return (
         <section className="container">
@@ -30,19 +52,17 @@ const Booking = () => {
                     </div>
                 </div>
                 <div className="col-12 col-md-5 mx-auto">
-                    <h3 className="mb-4">Complete the purchase of {service.carName}</h3>
-                    <form className="purchase-form">
-                        <label>Name</label>
+                    <h3 className="mb-4">Purchase {service.carName}</h3>
+                    <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
+                        <label>Your Name</label>
                         <input defaultValue={user.displayName} {...register("name")} />
                         <label>Email</label>
                         <input defaultValue={user.email} {...register("email", { required: true })} />
                         {errors.email && <span className="error">This field is required</span>}
-                        <label>Country</label>
-                        <input placeholder="Country" defaultValue="" {...register("country")} />
-                        <label>City</label>
-                        <input placeholder="City" defaultValue="" {...register("city")} />
-                        <label>Street Address</label>
-                        <input placeholder="Street Address" defaultValue="" {...register("address")} />
+                        <label>Car Name</label>
+                        <input placeholder="please enter the car name (required)" defaultValue="" {...register("carName", { required: true })} />
+                        <label>Address</label>
+                        <input placeholder="Address" defaultValue="" {...register("address")} />
                         <label>Phone Number</label>
                         <input placeholder="phone number" defaultValue="" {...register("phone")} />
 
