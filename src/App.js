@@ -18,6 +18,7 @@ import AddService from './Pages/AddService/AddService';
 import AddReview from './Pages/AddReview/AddReview';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
 import MyOrders from './Pages/MyOrders/MyOrders';
+import Pay from './Pages/Pay/Pay';
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route path="/myOrders">
               <MyOrders></MyOrders>
+            </Route>
+            <Route path="/pay">
+              <Pay></Pay>
             </Route>
             <Route path="*">
               <Error></Error>
