@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import './MyOrders.css';
 
 const MyOrders = () => {
 
@@ -35,10 +36,11 @@ const MyOrders = () => {
                 <div className="row">
                     {services?.map((pd) => (
                         <div key={pd._id} className="col-12 col-md-4">
-                            <div className="border border-3 p-3">
-                                <h6>My Name: {pd?.name}</h6>
-                                <h4>Selected Car: {pd?.carName}</h4>
-                                <p>Shipping Address: {pd?.address}</p>
+                            <div className="order-box p-3 m-2">
+                                {/* <h6>My Name: {pd?.name}</h6> */}
+                                <h4>Ordered Car: {pd?.carName}</h4>
+                                <h5 className="my-3">Price: {pd?.price}</h5>
+                                <p className="py-2">Shipping Address: {pd?.address}</p>
                                 <button onClick={() => handleDelete(pd?._id)} className="btn btn-danger">Cancel Order</button>
                             </div>
                         </div>
