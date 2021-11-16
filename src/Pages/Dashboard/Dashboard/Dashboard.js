@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
 import AddReview from '../../AddReview/AddReview';
 import AddService from '../../AddService/AddService';
 import ManageProducts from '../../ManageProducts/ManageProducts';
@@ -10,6 +11,7 @@ import './Dashboard.css';
 const Dashboard = () => {
     const [control, setControl] = useState("addProduct");
     // console.log(control);
+    const { admin } = useAuth();
 
     return (
         <div className="dashboard-component">
@@ -34,30 +36,32 @@ const Dashboard = () => {
                     >
                         ADD REVIEW
                     </li>
-                    <li
-                        onClick={() => setControl("status")}
-                        className="dashboard-menu"
-                    >
-                        MANAGE ALL ORDERS
-                    </li>
-                    <li
-                        onClick={() => setControl("addProduct")}
-                        className="dashboard-menu"
-                    >
-                        ADD A PRODUCT
-                    </li>
-                    <li
-                        onClick={() => setControl("makeAdmin")}
-                        className="dashboard-menu"
-                    >
-                        MAKE ADMIN
-                    </li>
-                    <li
-                        onClick={() => setControl("manageProducts")}
-                        className="dashboard-menu"
-                    >
-                        MANAGE PRODUCTS
-                    </li>
+                    {admin && <div>
+                        <li
+                            onClick={() => setControl("status")}
+                            className="dashboard-menu"
+                        >
+                            MANAGE ALL ORDERS
+                        </li>
+                        <li
+                            onClick={() => setControl("addProduct")}
+                            className="dashboard-menu"
+                        >
+                            ADD A PRODUCT
+                        </li>
+                        <li
+                            onClick={() => setControl("makeAdmin")}
+                            className="dashboard-menu"
+                        >
+                            MAKE ADMIN
+                        </li>
+                        <li
+                            onClick={() => setControl("manageProducts")}
+                            className="dashboard-menu"
+                        >
+                            MANAGE PRODUCTS
+                        </li>
+                    </div>}
                 </div>
                 <div className="render-container col-md-10">
                     <h2>Render Components</h2>

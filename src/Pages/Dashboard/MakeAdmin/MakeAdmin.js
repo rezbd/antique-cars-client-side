@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState(false);
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
@@ -18,7 +19,10 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.modifiedCount) {
+                    console.log(data);
+                    setSuccess(true);
+                }
             })
 
         e.preventDefault()
@@ -39,6 +43,9 @@ const MakeAdmin = () => {
                     </div>
                     <button type="submit" className="btn btn-primary w-100">Make Admin</button>
                 </form>
+                {success && <div className="alert alert-success" role="alert">
+                    Admin is made successfully!
+                </div>}
             </div>
         </div>
     );
