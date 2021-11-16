@@ -15,8 +15,9 @@ const Booking = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/services/${serviceId}`)
             .then(res => res.json())
-            .then(data => setService(data));
-    }, [])
+            .then(data => setService(data))
+            .then(data => reset(data))
+    }, [reset, serviceId])
 
     // codes to submit form data
     const onSubmit = data => {
@@ -60,7 +61,9 @@ const Booking = () => {
                         <input defaultValue={user.email} {...register("email", { required: true })} />
                         {errors.email && <span className="error">This field is required</span>}
                         <label>Car Name</label>
-                        <input placeholder="please enter the car name (required)" defaultValue="" {...register("carName", { required: true })} />
+                        <input defaultValue={service.carName} {...register("carName", { required: true })} />
+                        <label>Price</label>
+                        <input defaultValue={service.price} {...register("price", { required: true })} />
                         <label>Address</label>
                         <input placeholder="Address" defaultValue="" {...register("address")} />
                         <label>Phone Number</label>
