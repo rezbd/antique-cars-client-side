@@ -4,6 +4,7 @@ import AddService from '../../AddService/AddService';
 import ManageProducts from '../../ManageProducts/ManageProducts';
 import MyOrders from '../../MyOrders/MyOrders';
 import Pay from '../../Pay/Pay';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -46,7 +47,7 @@ const Dashboard = () => {
                         ADD A PRODUCT
                     </li>
                     <li
-                        onClick={() => setControl("")}
+                        onClick={() => setControl("makeAdmin")}
                         className="dashboard-menu"
                     >
                         MAKE ADMIN
@@ -66,6 +67,7 @@ const Dashboard = () => {
                     {control === "myOrders" && <MyOrders></MyOrders>}
                     {control === "addReview" && <AddReview></AddReview>}
                     {control === "manageProducts" && <ManageProducts></ManageProducts>}
+                    {control === "makeAdmin" && <MakeAdmin></MakeAdmin>}
 
                 </div>
             </div>

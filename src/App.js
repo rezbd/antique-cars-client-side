@@ -19,6 +19,8 @@ import AddReview from './Pages/AddReview/AddReview';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
 import MyOrders from './Pages/MyOrders/MyOrders';
 import Pay from './Pages/Pay/Pay';
+import DashboardTwo from './Pages/Dashboard/DashboardTwo/DashboardTwo';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
+            <Route path="/dashboardTwo">
+              <DashboardTwo></DashboardTwo>
+            </Route>
             <Route exact path="/">
               <Home></Home>
             </Route>
@@ -62,6 +67,9 @@ function App() {
             </Route>
             <Route path="/pay">
               <Pay></Pay>
+            </Route>
+            <Route path="/makeAdmin">
+              <MakeAdmin></MakeAdmin>
             </Route>
             <Route path="*">
               <Error></Error>
