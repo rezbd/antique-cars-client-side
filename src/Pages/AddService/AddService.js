@@ -21,7 +21,7 @@ const AddService = () => {
     return (
         <div className="row">
             <div className="col-12 col-md-4 mx-auto">
-                <h2>Add an Antique Car</h2>
+                <h3 className="mb-2 pb-1">Add an Antique Car</h3>
                 <form className="add-product" onSubmit={handleSubmit(onSubmit)}>
                     <h6>Antique Car Name</h6>
                     <input {...register("carName", { required: true, maxLength: 40 })} placeholder="Car Name" />

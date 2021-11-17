@@ -11,14 +11,14 @@ import './Dashboard.css';
 const Dashboard = () => {
     const [control, setControl] = useState("");
     // console.log(control);
-    const { admin } = useAuth();
+    const { admin, logout } = useAuth();
 
     return (
         <div className="dashboard-component">
             <div className="row">
-                <div className="dashboard-container col-md-2">
+                <div className="dashboard-container col-12 col-md-2">
                     {!admin && <div>
-                        <h6>DASHBOARD</h6>
+                        {/* <h6 className="mb-4 pb-2 text-light">USER</h6> */}
                         <li
                             onClick={() => setControl("pay")}
                             className="dashboard-menu"
@@ -39,7 +39,7 @@ const Dashboard = () => {
                         </li>
                     </div>}
                     {admin && <div>
-                        <h6>ADMIN DASHBOARD</h6>
+                        {/* <h6>ADMIN DASHBOARD</h6> */}
                         <li
                             onClick={() => setControl("addProduct")}
                             className="dashboard-menu"
@@ -65,8 +65,14 @@ const Dashboard = () => {
                             MANAGE ALL ORDERS
                         </li>
                     </div>}
+                    <li
+                        onClick={logout}
+                        className="dashboard-menu"
+                    >
+                        LOGOUT
+                    </li>
                 </div>
-                <div className="render-container col-md-10">
+                <div className="render-container col-12 col-md-10">
                     {!admin && <h2 className="admin-title">User Dashboard</h2>}
                     {admin && <h2 className="admin-title">Admin Dashboard</h2>}
 

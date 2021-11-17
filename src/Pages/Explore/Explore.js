@@ -11,8 +11,8 @@ const Explore = () => {
     }, [])
 
     return (
-        <div>
-            <h2>Explore All items</h2>
+        <div className="py-5 container">
+            <h2 className="mb-5">Explore All Cars</h2>
             <div className="explore-container">
                 {
                     services.map(service => <Service
