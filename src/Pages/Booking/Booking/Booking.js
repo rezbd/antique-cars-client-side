@@ -13,7 +13,7 @@ const Booking = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://tranquil-escarpment-93338.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
             .then(data => reset(data))
@@ -24,7 +24,7 @@ const Booking = () => {
         const savedCart = getStoredCart();
         data.order = savedCart;
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://tranquil-escarpment-93338.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
