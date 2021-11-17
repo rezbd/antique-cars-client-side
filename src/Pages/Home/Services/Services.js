@@ -11,8 +11,8 @@ const Services = () => {
     }, [])
 
     return (
-        <div className="container">
-            <h2>This is Services aka Car Items</h2>
+        <div className="container featured-cars">
+            <h2 className="mb-4">Featured Antique Cars</h2>
             <div className="services-container">
                 {
                     services.slice(0, 6).map(service => <Service

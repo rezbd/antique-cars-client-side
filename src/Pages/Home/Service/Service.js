@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Service.css';
 
 const Service = ({ service }) => {
     const { carName, description, price, img, _id } = service;
     return (
-        <div>
+        <div className="car-each">
             <img width="100%" src={img} alt="" />
             <h3>{carName}</h3>
             <p>{description}</p>

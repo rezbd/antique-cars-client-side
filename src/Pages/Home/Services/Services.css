@@ -1,3 +1,8 @@
+.featured-cars{
+    /* background-color: gray; */
+    padding-top: 70px;
+}
+
 .services-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
