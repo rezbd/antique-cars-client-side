@@ -42,13 +42,13 @@ const Booking = () => {
     };
 
     return (
-        <section className="container">
+        <section className="container my-3 pt-4">
             <div className="row">
                 <div className="col-12 col-md-5 mx-auto">
                     <div>
-                        <h3>{service.carName}</h3>
+                        <h3 className="mb-4">{service.carName}</h3>
                         <img width="100%" src={service.img} alt="" />
-                        <p>{service.description}</p>
+                        <p className="my-4">{service.description}</p>
                         <h5>Price: ${service.price}</h5>
                     </div>
                 </div>

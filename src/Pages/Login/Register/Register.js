@@ -25,7 +25,7 @@ const Register = () => {
     }
 
     return (
-        <div className="row p-5">
+        <div className="row pb-5 pt-2">
             <div className="col-12 col-md-4 mx-auto">
                 <h2 className="my-5">Register</h2>
                 {!isLoading && < Form onSubmit={handleLoginSubmit}>
