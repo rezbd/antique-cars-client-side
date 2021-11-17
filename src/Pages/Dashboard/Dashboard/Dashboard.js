@@ -82,6 +82,7 @@ const Dashboard = () => {
                     {control === "addReview" && <AddReview></AddReview>}
                     {control === "manageProducts" && <ManageProducts></ManageProducts>}
                     {control === "makeAdmin" && <MakeAdmin></MakeAdmin>}
+                    {control === "status" && <h2 className="py-5">Coming Soon...</h2>}
 
                 </div>
             </div>

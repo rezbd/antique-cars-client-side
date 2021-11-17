@@ -28,9 +28,9 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div className="row">
+        <div className="row py-4">
             <div className="col-12 col-md-4 mx-auto">
-                <h2>Make an Admin</h2>
+                <h3 className="mb-4 pt-2">Make an Admin</h3>
                 <form onSubmit={handleAdminSubmit}>
                     <div className="mb-3">
                         <label className="form-label">Email address</label>
