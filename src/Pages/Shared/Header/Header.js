@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div className="top-header">
             <>
-                <Navbar bg="dark" variant="dark" sticky="top" collapseOnSelect expand="lg">
+                <Navbar bg="dark" variant="dark" fixed="top" collapseOnSelect expand="lg">
                     <Container>
                         <Navbar.Brand href="#home">Antique Cars</Navbar.Brand>
                         <Navbar.Toggle />

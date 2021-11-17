@@ -21,6 +21,7 @@ import MyOrders from './Pages/MyOrders/MyOrders';
 import Pay from './Pages/Pay/Pay';
 import DashboardTwo from './Pages/Dashboard/DashboardTwo/DashboardTwo';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
               <Error></Error>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
