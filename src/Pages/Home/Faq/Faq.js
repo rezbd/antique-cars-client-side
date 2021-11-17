@@ -7,7 +7,7 @@ const Faq = () => {
             <div className="col-12 col-md-6 mx-auto">
                 <div id="faq" className="pt-3 pb-5">
                     <h2 className="my-5">Antique Cars Buying Frequently Asked Questions</h2>
-                    <Accordion className="mb-5">
+                    <Accordion className="mb-4">
                         <Accordion.Item eventKey="0" className="faq-body">
                             <Accordion.Header>Do you restore your cars?</Accordion.Header>
                             <Accordion.Body>

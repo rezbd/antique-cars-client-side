@@ -11,8 +11,8 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div className="container">
-            <h2>User Reviews</h2>
+        <div className="reviews-section container">
+            <h2 className="mb-5">User Reviews</h2>
             <div className="reviews-container">
                 {
                     reviews.map(feedback => <Review
