@@ -22,7 +22,7 @@ const Login = () => {
         e.preventDefault();
     }
     return (
-        <div className="row px-2 pb-4">
+        <div className="row px-2 pb-4 mb-2">
             <div className="col-12 col-md-4 mx-auto">
                 <h2 className="my-5">Please Login</h2>
                 <Form onSubmit={handleLoginSubmit}>

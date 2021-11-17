@@ -28,7 +28,7 @@ const ManageProducts = () => {
 
     return (
         <div className="container py-4">
-            <h3 className="pb-3">Manage Products</h3>
+            <h3 className="pb-4">Manage Products</h3>
             <div className="manage-products-container">
                 {
                     services.map(service => <div key={service._id}>

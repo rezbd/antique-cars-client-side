@@ -35,7 +35,7 @@ const Dashboard = () => {
                             onClick={() => setControl("addReview")}
                             className="dashboard-menu"
                         >
-                            ADD REVIEW
+                            REVIEW
                         </li>
                     </div>}
                     {admin && <div>
@@ -82,7 +82,7 @@ const Dashboard = () => {
                     {control === "addReview" && <AddReview></AddReview>}
                     {control === "manageProducts" && <ManageProducts></ManageProducts>}
                     {control === "makeAdmin" && <MakeAdmin></MakeAdmin>}
-                    {control === "status" && <h2 className="py-5">Coming Soon</h2>}
+                    {control === "status" && <h2 className="py-5">Manage all orders coming soon</h2>}
 
                 </div>
             </div>
