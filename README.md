@@ -7,4 +7,4 @@ Antique Cars sell only extraordinary classic cars in good condition according to
 - The users can review any cars they want from the website and provide their valuable feedbacks and ratings. All of the reviews and ratings are displayed on the home page.
 - The users can see their orders after placing order and the website provides option to cancel the orders anytime they want before the product is shipped.
 - The site gives special role and permission to the admin users to manage the website. It can be done only by the website owner.
-- In the website, logged in admins can make another user admin. Admins can also manage the products when necessary, like adding a newly restored classic car or removing some faulty ones.
+- In the website, logged in admins can make another user admin. Admins can also manage the products when necessary, like adding a newly restored classic car or removing the faulty ones.
