@@ -35,7 +35,13 @@ const ManageProducts = () => {
                         <div className="manage-products">
                             <h3 className="mb-3">{service.carName}</h3>
                             <h5 className="mb-4">Price: ${service.price}</h5>
-                            <button onClick={() => handleDelete(service._id)} className="btn btn-danger">Delete</button>
+                            {/* <button onClick={() => handleDelete(service._id)} className="btn btn-danger">Delete</button> */}
+                            <button onClick={() => {
+                                const confirmBox = window.confirm("Are you sure to delete this item?")
+                                if (confirmBox === true) {
+                                    handleDelete(service?._id)
+                                }
+                            }} className="btn btn-danger">Delete</button>
                         </div>
                     </div>)
                 }
