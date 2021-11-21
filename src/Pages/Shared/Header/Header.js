@@ -24,7 +24,7 @@ const Header = () => {
                                     <Nav.Link as={Link} style={{ color: 'white' }} to="/login">Login</Nav.Link>
                             }
                             <Navbar.Text className="ms-2">
-                                Signed in as: <a href="#login">{user?.displayName}</a>
+                                Signed in as: <a style={{ textDecoration: "none", color: "#FFE4C4" }} href="#login">{user?.displayName}</a>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Container>
